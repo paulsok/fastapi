@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles #new
+from fastapi.staticfiles import StaticFiles
 from core.config import settings
 from apis.general_pages.route_homepage import general_pages_router
 
@@ -17,5 +17,6 @@ def start_application():
     include_router(app)
     configure_static(app)
     return app
+
 
 app = start_application()
