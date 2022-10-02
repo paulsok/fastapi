@@ -5,13 +5,9 @@ from db.models.users import User
 from core.hashing import Hasher
 
 
-def create_new_user(user: UserCreate, db: Session):
-    user = User(username=user.username,
-                email=user.email,
-                hashed_password=Hasher.get_password_hash(user.password),
-                is_active=True,
-                is_superuser=False)
-    db.add(user)
+def create_new_job(job: JobCreate,db: Session,owner_id:int):
+    job_object = Job(**job.dict(),owner_id=owner_id)
+    db.add(job_object)
     db.commit()
-    db.refresh(user)
-    return user
+    db.refresh(job_object)
+    return job_object
