@@ -5,7 +5,7 @@ from fastapi import Depends,HTTPException,status
 from db.session import get_db
 from db.models.jobs import Job
 from schemas.jobs import JobCreate,ShowJob
-from db.repository.jobs import create_new_job
+from db.repository.jobs import create_new_job, retreive_job
 
 
 router = APIRouter()
