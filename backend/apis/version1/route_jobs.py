@@ -1,11 +1,14 @@
-from fastapi import APIRouter
-from sqlalchemy.orm import Session
-from fastapi import Depends,HTTPException,status
-
-from db.session import get_db
 from db.models.jobs import Job
-from schemas.jobs import JobCreate,ShowJob
-from db.repository.jobs import create_new_job, retreive_job
+from db.repository.jobs import create_new_job
+from db.repository.jobs import retreive_job
+from db.session import get_db
+from fastapi import APIRouter
+from fastapi import Depends
+from fastapi import HTTPException
+from fastapi import status
+from schemas.jobs import JobCreate
+from schemas.jobs import ShowJob
+from sqlalchemy.orm import Session
 
 
 router = APIRouter()
